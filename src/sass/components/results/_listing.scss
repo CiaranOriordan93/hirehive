@@ -1,0 +1,34 @@
+.listing {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid $color-grey-dark;
+
+  &:hover {
+    background-color: $color-grey-light;
+  }
+
+  &__position {
+    flex: 4;
+  }
+
+  &__category {
+    flex: 2;
+  }
+
+  &__location {
+    flex: 2;
+    color: $color-grey-dark;
+  }
+
+  &__arrow {
+    margin-right: 1rem;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-black-light;
+  }
+}

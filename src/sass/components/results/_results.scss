@@ -1,0 +1,33 @@
+.main {
+  height: 100rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.results {
+  width: 60%;
+  height: 100rem;
+
+  &__headings {
+    width: 100%;
+    height: 3rem;
+    color: $color-grey-dark;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 6rem;
+    border-bottom: 1px solid $color-grey-dark;
+  }
+
+  &__position {
+    flex: 4;
+  }
+  &__category {
+    flex: 2;
+  }
+
+  &__location {
+    flex: 2;
+    margin-right: 3rem;
+  }
+}
