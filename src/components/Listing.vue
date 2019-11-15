@@ -11,7 +11,7 @@
         <span class="listing__location">{{ position.location }}</span>
       </div>
       <img
-        src="../../assets/icons/right-arrow.svg"
+        src="../assets/icons/right-arrow.svg"
         height="20px"
         width="20px"
         class="listing__arrow"

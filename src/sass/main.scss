@@ -4,10 +4,10 @@
 @import 'base/base';
 @import 'base/typography';
 
-@import 'components/header/search';
-@import 'components/header/header';
+@import 'components/search';
+@import 'components/header';
 
-@import 'components/results/listing';
-@import 'components/results/results';
+@import 'components/listing';
+@import 'components/results';
 
 @import 'pages/app';

@@ -1,6 +1,6 @@
 <template>
-  <div class="header">
-    <Search></Search>
+  <main class="main">
+    <Search @searchString="(input = $event), sendString()"></Search>
     <div class="filters">
       <button
         v-for="(button, index) in buttons"
@@ -12,11 +12,11 @@
         #{{ button.text.toUpperCase() }}
       </button>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
-import Search from '../search/Search';
+import Search from '../components/Search';
 export default {
   components: {
     Search
@@ -46,15 +46,33 @@ export default {
     };
   },
   methods: {
-    send() {
+    sendString() {
       this.$emit('searchString', this.input);
-      this.$emit('call');
+    },
+    sendFilter() {
+      this.$emit('searchFilter', this.filter);
     },
     toggleButton(index) {
       for (let i = 0; i < this.buttons.length; i++) {
+        // loop through all buttons that are not the one clicked on
         if (i !== index) {
           this.buttons[i].isActive = false;
-        } else this.buttons[index].isActive = !this.buttons[index].isActive;
+          // toggle isActive on the button that was clicked
+        } else {
+          this.buttons[index].isActive = !this.buttons[index].isActive;
+          if (
+            this.filter.length > 0 &&
+            this.filter === this.buttons[index].text.toLowerCase()
+            // check to see if filter exists AND is the same value
+            // as the button that was just clicked
+          ) {
+            this.filter = '';
+            this.sendFilter();
+          } else {
+            this.filter = this.buttons[index].text.toLowerCase();
+            this.sendFilter();
+          }
+        }
       }
     }
   }

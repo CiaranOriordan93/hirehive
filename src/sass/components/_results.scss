@@ -1,4 +1,4 @@
-.main {
+.container {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -27,5 +27,12 @@
   &__location {
     flex: 2;
     margin-right: 3rem;
+  }
+
+  &__error {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 5rem;
   }
 }

@@ -1,13 +1,16 @@
 <template>
   <div id="app">
-    <Header></Header>
-    <Results :jobs="result"></Results>
+    <Header
+      @searchString="input = $event"
+      @searchFilter="filter = $event"
+    ></Header>
+    <Results :jobs="result" :keyword="input" :filter="filter"></Results>
   </div>
 </template>
 
 <script>
-import Header from '../src/components/search/Header';
-import Results from '../src/components/results/Results';
+import Header from '../src/components/Header';
+import Results from '../src/components/Results';
 import Service from '../src/services/api';
 
 export default {
@@ -17,7 +20,9 @@ export default {
   },
   data() {
     return {
-      result: []
+      result: [],
+      input: '',
+      filter: ''
     };
   },
   created() {
