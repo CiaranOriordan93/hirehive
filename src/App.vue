@@ -5,6 +5,7 @@
       @searchFilter="filter = $event"
     ></Header>
     <Results :jobs="result" :keyword="input" :filter="filter"></Results>
+    <span class="error__text">{{ errorText }}</span>
   </div>
 </template>
 
@@ -22,14 +23,19 @@ export default {
     return {
       result: [],
       input: '',
-      filter: ''
+      filter: '',
+      errorText: ''
     };
   },
   created() {
-    Service.getJobs().then(response => {
-      this.result = response.data.jobs;
-      console.log(this.result);
-    });
+    Service.getJobs()
+      .then(response => {
+        this.result = response.data.jobs;
+      })
+      .catch(error => {
+        console.log(`there was an error: ${error.response}`);
+        this.errorText = error.response;
+      });
   }
 };
 </script>

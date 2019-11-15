@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     inputCheck() {
-      if (this.input.length < 2) {
+      if (this.input.length === 1) {
         this.qualify = false;
         this.display = true;
       } else {
