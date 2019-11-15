@@ -1,14 +1,14 @@
 <template>
-  <a href="#" class="listing__link">
+  <a :href="position.hostedUrl" target="_blank" class="listing__link">
     <div class="listing">
       <div class="listing__position">
-        <span>Human Resources Assistant</span>
+        <span>{{ position.title }}</span>
       </div>
       <div class="listing__category">
-        <span class="listing__category">HR</span>
+        <span class="listing__category">{{ position.category }}</span>
       </div>
       <div class="listing__location">
-        <span class="listing__location">San Francisco</span>
+        <span class="listing__location">{{ position.location }}</span>
       </div>
       <img
         src="../../assets/icons/right-arrow.svg"
@@ -21,7 +21,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['position']
+};
 </script>
 
 <style lang="scss" scoped></style>

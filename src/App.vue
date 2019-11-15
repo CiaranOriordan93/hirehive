@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header></Header>
-    <Results></Results>
+    <Results :jobs="result"></Results>
   </div>
 </template>
 
@@ -17,22 +17,12 @@ export default {
   },
   data() {
     return {
-      result: [],
-      title: [],
-      description: []
+      result: []
     };
-  },
-  method: {
-    formatTitle() {
-      this.title = this.result[0].title.split(' ');
-    },
-    formatDescription() {
-      this.description = this.result[0].description.text.split(' ');
-    }
   },
   created() {
     Service.getJobs().then(response => {
-      this.result = response.data;
+      this.result = response.data.jobs;
       console.log(this.result);
     });
   }
