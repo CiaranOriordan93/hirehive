@@ -32,4 +32,10 @@
     color: $color-black-light;
     cursor: pointer;
   }
+
+  &__visited {
+    margin-left: 3rem;
+    opacity: 0.5;
+    color: $color-secondary;
+  }
 }

@@ -1,8 +1,14 @@
 <template>
-  <a :href="position.hostedUrl" target="_blank" class="listing__link">
+  <a
+    :href="position.hostedUrl"
+    @click="visited()"
+    target="_blank"
+    class="listing__link"
+  >
     <div class="listing">
       <div class="listing__position">
         <span>{{ position.title }}</span>
+        <span class="listing__visited" v-if="state">visited</span>
       </div>
       <div class="listing__category">
         <span class="listing__category">{{ position.category }}</span>
@@ -22,7 +28,17 @@
 
 <script>
 export default {
-  props: ['position']
+  props: ['position'],
+  data() {
+    return {
+      state: false
+    };
+  },
+  methods: {
+    visited() {
+      this.state = true;
+    }
+  }
 };
 </script>
 
